@@ -37,6 +37,11 @@ You'll need to install the following packages in order to run the codes in your 
 
 
 ## Installation
+### Algorithm Installation
+- To install the ADClust, please follow the guidelines in https://github.com/biomed-AI/ADClust
+- To install the GraphCS, please follow the guidelines in https://github.com/biomed-AI/GraphCS
+- To install the SANGO, please follow the guidelines in https://github.com/biomed-AI/SANGO
+
 ### To run scRNA-generic/ prepross & visualization for ADClust and GraphCS
 ```bash
 conda create -n singler --file spec-scrna-list.txt
