@@ -33,21 +33,21 @@ You'll need to install the following packages in order to run the codes in your 
 ## Installation
 ### To run scRNA-generic/ prepross & visualization for ADClust/ prepross & visualization for GraphCS
 ```bash
-conda create -n scrna --file spec-scrna-list.txt
+conda create -n singler --file spec-scrna-list.txt
 ```
 ### To run the visualization for SANGO
 ```bash
-conda create -n scrna --file spec-monocle-list.txt
-conda create -n scrna --file spec-motif-list.txt
-conda create -n scrna --file spec-snpsea-list.txt
+conda create -n monocle --file spec-monocle-list.txt
+conda create -n motif --file spec-motif-list.txt
+conda create -n snpsea --file spec-snpsea-list.txt
 ```
 ### To run scATAC-generic
 ```bash
-conda create -n scrna --file spec-scatac-list.txt
+conda create -n atacenv --file spec-scatac-list.txt
 ```
 ### To run velocyto trajectory analysis
 ```bash
-conda create -n scrna --file spec-R4velocyto-list.txt
+conda create -n R4velocyto --file spec-R4velocyto-list.txt
 ```
 
 ## Usage
@@ -55,32 +55,41 @@ Due to the upload size limits, you can utilize our code in your local environmen
 
 - scRNA-generic
 The workflow includes Seurat, Harmony, SingleR, and CellChat. We Seurat and Harmony were utilized for data integration and clustering, SingleR for cell annotation, and CellChat for calculating cell communication.
-```  
-sh entrypoint SCRNA generic.sh
+```bash
+bash entrypoint_scRNA_generic.sh
 ```
 
 - scATAC-generic
 The workflow includes Seurat and Signac. Seurat and Signac were utilized for data integration and clustering, with Signac used for annotation and computing QC metrics.
-```  
-sh entrypoint scatac generic.sh
-
+```bash
+bash entrypoint_scatac.sh
 ```
 
 - ADClust
 The workflow primarily involves the use of Seurat, Harmony, SingleR, and CellChat. Seurat and Harmony were utilized for data integration, Seurat for clustering, and SingleR for cell annotation. Finally, CellChat was employed to calculate cell communication.
-```
-sh entrypoint ADClust_1.sh
-sh entrypoint ADClust_2.sh
+```bash
+bash entrypoint_ADClust_1.sh
+bash entrypoint_ADClust_2.sh
 ```
 
 - GraphCS
 
 The workflow includes Seurat, Harmony, SingleR, and CellChat. We Seurat and Harmony were utilized for data integration and clustering, GraphCS for cell annotation, and CellChat for calculating cell communication.
 
+```bash
+bash entrypoint_GraphCS_1.sh
+bash entrypoint_GraphCS_2.sh
 ```
-sh entrypoint_GraphCS 1.sh
-sh entrypoint_GraphCS 1.sh
+
+- SANGO
+
+This is a workflow for cell annotation of scATAC-seq data using the SANGO tool, and we also perform downstream analysis of the annotated data, including enrichment analysis, chromatin proximity analysis, and chromatin interaction analysis.
+
+```bash
+bash entrypoint_SANGO.sh
+bash entrypoint_motifplot.sh
 ```
+
 
 
 ## Tutorial
