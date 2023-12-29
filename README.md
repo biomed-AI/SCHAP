@@ -34,7 +34,7 @@ You'll need to install the following packages in order to run the codes in your 
 
 
 ## Installation
-### To run scRNA-generic/ prepross & visualization for ADClust/ prepross & visualization for GraphCS
+### To run scRNA-generic/ prepross & visualization for ADClust and GraphCS
 ```bash
 conda create -n singler --file spec-scrna-list.txt
 ```
