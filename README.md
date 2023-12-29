@@ -28,7 +28,7 @@ You'll need to install the following packages in order to run the codes in your 
 - GraphCS
 
 
-##Installation
+## Installation
 conda ....
 conda ....
 
@@ -45,7 +45,8 @@ sh entrypoint SCRNA generic.sh
 - scATAC-generic
 The workflow includes Seurat and Signac. Seurat and Signac were utilized for data integration and clustering, with Signac used for annotation and computing QC metrics.
 ```  
-sh entrypoint SCRNA generic.sh
+sh entrypoint scatac generic.sh
+
 ```
 
 - ADClust
