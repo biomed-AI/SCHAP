@@ -99,4 +99,4 @@ bash entrypoint_motifplot.sh
 
 
 ## Tutorial
-For the step-by-step tutorial, please refer to: https://bio-web1-pre.nscc-gz.cn/database/SCHAP/documentation#1
+For the website tutorial, please refer to: https://bio-web1.nscc-gz.cn/database/SCHAP/documentation#1
