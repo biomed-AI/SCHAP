@@ -21,16 +21,11 @@ gsm
 RNA <- read.csv(csv ,header = T,row.names=1)
 
 # marker gene #
-###该步骤应该作为一个表格输出，预计需要输出更多marker基因？比如20个
 gsm <- PrepSCTFindMarkers(object=gsm ,assay="SCT" ,verbose=TRUE)
 gsm.markers <- FindAllMarkers(gsm, only.pos = TRUE, min.pct = 0.25, logfc.threshold = 0.25)
 top10 <- gsm.markers %>% group_by(cluster) %>% top_n(n = 10, wt = avg_log2FC)
 top10
 
-
-#############################################
-#细胞注释(人和小鼠都可以)
-#这里目前是使用聚类里出现频次最高的细胞名来注释聚类，后续需要优化的
 gsm@meta.data$CellType <- RNA[,1]
 
 CellType=data.frame(ClusterID=gsm@meta.data$seurat_clusters,
@@ -53,7 +48,6 @@ ggsave(gsm_fin_umap,filename = "outputs_umap.pdf",width = 10, height = 7, units 
 gsm_fin_tsne <- DimPlot(gsm,reduction = "tsne",label=T, group.by = 'CellType')
 ggsave(gsm_fin_tsne,filename = "outputs_tsne.pdf",width = 10, height = 7, units = 'in', dpi = 300 )
 
-######提取非线性低维聚类信息######
 
 tSNE<- as.data.frame(gsm@reductions$tsne@cell.embeddings)
 UMAP<- as.data.frame(gsm@reductions$umap@cell.embeddings)
@@ -66,8 +60,6 @@ write.csv(UMAP,file="umap.csv")
 rm(tSNE,UMAP)
 gc()
 #############################################
-#基因富集（GO和KEGG）
-
 library(clusterProfiler)
 options(clusterProfiler.download.method = 'curl')
 options(download.file.extra = '-k')
@@ -91,8 +83,6 @@ head(eg)
 
 geneList <- eg$ENTREZID
 
-#查看基因在聚类里的分布
-#输入能被map的marker基因
 gene <- eg$SYMBOL
 
 go <- enrichGO(gene = geneList,
@@ -139,8 +129,6 @@ head(eg)
 
 geneList <- eg$ENTREZID
 
-#查看基因在聚类里的分布
-#输入能被map的marker基因
 gene <- eg$SYMBOL
 
 go <- enrichGO(gene = geneList,
@@ -178,8 +166,6 @@ ggsave(kg_bar,filename = "kg_bar.pdf", dpi = 300 )
 ggsave(kg_dot,filename = "kg_dot.pdf", dpi = 300 )
 }
 
-
-#用AverageHeatmap画关于marker基因的图
 library(dplyr)
 library(scRNAtoolVis)
 library(Cairo)
@@ -193,8 +179,6 @@ AverageHeatmap(object = gsm, markerGene = head(gene,60),
                column_title = NULL,row_title=NULL,assays='SCT'
                )
 dev.off()
-
-#差异分析，提取出每个细胞的差异基因，整合后画热图#
 
 for(i in 1:length(levels(gsm))) {
 data <- FindMarkers(gsm, ident.1 = gsm@meta.data$CellType[i], ident.2 = NULL, only.pos = TRUE, 
@@ -215,17 +199,13 @@ AverageHeatmap(object = gsm, markerGene = markers,
                )
 dev.off()
 
-
 ##############################################
-#细胞通讯(使用cellchat)
-
 library(CellChat)
 library(patchwork)
 library(Seurat)
-#library(ggplot2)
+
 options(stringsAsFactors = FALSE)
 
-#做没做SCT的都能用这句话，因为会匹配默认的assay
 data.input = GetAssayData(gsm,slot = "data")
 
 meta.data =  gsm@meta.data
@@ -239,8 +219,6 @@ rm(gsm)
 gc()
 groupSize <- as.numeric(table(cellchat@idents)) # number of cells in each cell group
 groupSize
-
-#加载CellChatDB数据库
 
 if (species == "Human")
 {
@@ -258,26 +236,21 @@ cellchat@DB <- CellChatDB.use
 
 cellchat <- subsetData(cellchat)  # This step is necessary even if using the whole database
 library(future)
-options(future.globals.maxSize= 40000000000) #大于3407872000即可
+options(future.globals.maxSize= 40000000000) 
 future::plan("multicore", workers = 10)
 cellchat <- identifyOverExpressedGenes(cellchat)
 cellchat <- identifyOverExpressedInteractions(cellchat)
-
-#计算通讯概率，推断细胞通讯网络
 cellchat <- computeCommunProb(cellchat,population.size = F)
 # Filter out the cell-cell communication if there are only few number of cells in certain cell groups
 cellchat <- filterCommunication(cellchat, min.cells = 10)
 
 levels(cellchat@idents)
-#在信号通路水平推断细胞通讯
 cellchat <- computeCommunProbPathway(cellchat)
 head(cellchat@net)
 head(cellchat@netP)
 
-#计算加和的cell-cell通讯网络
 cellchat <- aggregateNet(cellchat)
 
-#细胞互作数量与强度统计分析
 
 groupSize <- as.numeric(table(cellchat@idents))
 library(Cairo)
@@ -291,13 +264,11 @@ dev.off()
 # save as TTL/net_number_strength.pdf
 
 # show all the significant interactions (L-R pairs)
-#需要指定受体细胞和配体细胞
 p = netVisual_bubble(cellchat, sources.use = seq(1,length(levels(cellchat@idents)),2),
                      targets.use = seq(2,length(levels(cellchat@idents)),2),,remove.isolate = FALSE,angle.x = 45)
 ggsave("bubble.pdf",p ,width = bubble_width,height = bubble_height)
 # save as TIL/Mye Lymph bubble.pdf
 
-#计算网络中心性权重
 cellchat <- netAnalysis_computeCentrality(cellchat, slot.name="netP")
 
 ##heatmap signal##
