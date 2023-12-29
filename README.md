@@ -15,9 +15,9 @@ The application is free and open to all users with no login requirement. The ana
 
 ## Requirements
 You'll need to install the following packages in order to run the codes in your local environment.
-
-- Centos7.6.1810
-
+#
+- Centos 7.6.1810
+#
 - cellranger7.1.0
 - cellranger-atac2.1.0
 - SeuratV4
