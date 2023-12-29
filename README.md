@@ -1,4 +1,4 @@
-
+![image](https://github.com/biomed-AI/SCHAP/assets/110893478/591c6248-8adf-48a9-9e63-10ed73fc5133)
 # SCHAP: Single Cell High-performance Analysis Platform
 
 ![image](https://github.com/biomed-AI/SCHAP/assets/110893478/e17874e6-6311-4bd7-b688-7687c797d18f)
@@ -32,15 +32,23 @@ You'll need to install the following packages in order to run the codes in your 
 
 ## Installation
 ### To run scRNA-generic/ prepross & visualization for ADClust/ prepross & visualization for GraphCS
-- conda create -n scrna --file spec-scrna-list.txt
+```bash
+conda create -n scrna --file spec-scrna-list.txt
+```
 ### To run the visualization for SANGO
-- conda create -n scrna --file spec-monocle-list.txt
-- conda create -n scrna --file spec-motif-list.txt
-- conda create -n scrna --file spec-snpsea-list.txt
+```bash
+conda create -n scrna --file spec-monocle-list.txt
+conda create -n scrna --file spec-motif-list.txt
+conda create -n scrna --file spec-snpsea-list.txt
+```
 ### To run scATAC-generic
-- conda create -n scrna --file spec-scatac-list.txt
+```bash
+conda create -n scrna --file spec-scatac-list.txt
+```
 ### To run velocyto trajectory analysis
-- conda create -n scrna --file spec-R4velocyto-list.txt
+```bash
+conda create -n scrna --file spec-R4velocyto-list.txt
+```
 
 ## Usage
 Due to the upload size limits, you can utilize our code in your local environment.
