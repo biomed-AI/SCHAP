@@ -1,7 +1,8 @@
 
 # SCHAP: Single Cell High-performance Analysis Platform
 
-![image](https://github.com/biomed-AI/SCHAP/assets/110893478/22233dd4-8718-4690-a035-0ddc47a050f9)
+![image](https://github.com/biomed-AI/SCHAP/assets/110893478/e17874e6-6311-4bd7-b688-7687c797d18f)
+
 
 
 ## Overview
