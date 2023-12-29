@@ -27,9 +27,10 @@ You'll need to install the following packages in order to run the codes in your 
 - velocyto
 - Signac
 - Cireco
-- ADClust
+- ADClust[](https://github.com/biomed-AI/ADClust)
 - SingleR
-- GraphCS
+- GraphCS[](https://github.com/biomed-AI/GraphCS)
+- SANGO[](https://github.com/biomed-AI/SANGO)
 
 
 ## Installation
