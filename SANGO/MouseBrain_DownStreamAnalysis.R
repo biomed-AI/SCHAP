@@ -1,7 +1,4 @@
-#install.packages('Signac')
-#devtools::install_github("cole-trapnell-lab/cicero-release", ref = "monocle3")
 knitr::opts_chunk$set(warning = FALSE, message = FALSE) 
-
 require(magrittr)
 require(readr)
 require(Matrix)
@@ -23,7 +20,7 @@ anno_data = commandArgs(trailingOnly = TRUE)[2]
 coveragePlotregion = commandArgs(trailingOnly = TRUE)[3]
 ## genome can be changed to a'chr1' or 'chr(2:19)'
 connections_genome = commandArgs(trailingOnly = TRUE)[4]
-#pos1 <-  75863738 ## parameter
+#pos1 <- 75863738 ## parameter
 #pos2 <- 75884283 ## parameter
 pos1 = commandArgs(trailingOnly = TRUE)[5]
 pos2 = commandArgs(trailingOnly = TRUE)[6]
@@ -45,8 +42,7 @@ celllabels=list.files('../input/','.csv',full.names=T,recursive=F)
 counts <- Read10X_h5(filename = h5)
 
 barcodes <- read.csv(csv,header=T)
-#cell_labels <- read.csv(celllabels)
-#barcodes <- head(barcodes,nrow(cell_labels))
+
 
 brain_assay <- CreateChromatinAssay(
   counts = counts,
@@ -148,7 +144,7 @@ temp_peakinfo$site_name <- paste(temp_peakinfo$chr, temp_peakinfo$bp1,
 row.names(temp_peakinfo) <-temp_peakinfo$site_name
 row.names(indata) <- temp_peakinfo$site_name
 
-#cellinfo$Pred <- gsub("^Ex.*", 'Excitatory neurons', cellinfo$Pred)
+
 cellinfo$Pred <- gsub("^Ex.*", 'Excitatory neurons', cellinfo$Pred)
 colnames(indata) <- cellinfo$Pred
 
@@ -223,7 +219,7 @@ gene_anno
 ## also change the output path of the plot
 specific_cell <- 'EX' ## parameter
 chrom <- connections_genome ## parameter
-#pos1 <-  75863738 ## parameter
+#pos1 <- 75863738 ## parameter
 #pos2 <- 75884283 ## parameter
 
 ##############draw connection plot######################
