@@ -44,5 +44,4 @@ ln -s /app/common/bio-platform/SCHAP/monocle  /home/zhanghaokun/anaconda3/envs/m
 ln -s /app/common/bio-platform/SCHAP/snpsea  /home/zhanghaokun/anaconda3/envs/mamba_install/envs/snpsea
 export PATH=/home/zhanghaokun/anaconda3/envs/mamba_install/envs/snpsea/bin:$PATH
 
-# 运行
 mkdir -p result && cd result && export TZ=Asia/Shanghai && /home/zhanghaokun/anaconda3/envs/mamba_install/envs/monocle/bin/Rscript $submitr_path $species $anno_data $coveragePlotregion $connections_genome $pos1 $pos2 2>&1 | tee ../output.log && $submitr_path2 2>&1 | tee ../output2.log
