@@ -12,13 +12,12 @@ print(Immu_Rdata_path)
 print(RNA_Rdata_path)
 print(species)
 
-#samples_folder=readLines('samples_path.txt')
+
 samples=list.dirs("../input/",full.names=F,recursive=F)
 print(samples)
 
 gsmList = lapply(samples,function(pro){
   folder=file.path(dir ,pro)
-  #print(pro)
   print(folder)
   print(pro)
   gsm.data = Read10X(folder)
@@ -47,7 +46,6 @@ for (i in 1:length(gsmList)) {
 }
 gsmList
 
-#########################质量控制（过滤低质量细胞-被线粒体污染的细胞）###########################
 library(ggplot2)
 for (i in 1:length(gsmList)) {
   mt<-PercentageFeatureSet(gsmList[[i]],pattern = "^MT-")
@@ -57,23 +55,22 @@ for (i in 1:length(gsmList)) {
 rm(mt)
 gc()
 library(harmony)
-#SCT标准化数据
 gsmList <- lapply(X = gsmList, FUN = SCTransform, method = "glmGamPoi")
 features <- SelectIntegrationFeatures(object.list = gsmList, nfeatures = 3000)
 gsmList <- lapply(X = gsmList, FUN = RunPCA, features = features)
-#数据缩放（去除基因效应）
+
 gsmList <- lapply(X = gsmList,FUN = ScaleData)
 gsm <- merge(gsmList[[1]], gsmList[2:length(gsmList)],add.cell.ids = samples)
-#harmony前置需要pca
+
 gsm <- RunPCA(gsm, npcs=50,features = features, verbose = TRUE)
-#使用harmony整合数据
+
 gsm <- RunHarmony(gsm,group.by.vars="orig.ident",assat.use="SCT",max.iter.harmony = 10)
-#########降维聚类分群##########
+
 library(cowplot)
-#非线性降维聚类
+
 gsm <- RunTSNE(gsm, reduction = "harmony", dims = 1:15) 
 gsm <- RunUMAP(gsm, reduction = "harmony", dims = 1:15)
-###找出类群###
+
 gsm <- FindNeighbors(gsm, reduction = "harmony", dims = 1:15)
 }else{
   gsm <- gsmList[[1]]
@@ -88,36 +85,31 @@ library(ggplot2)
 rm(mt)
 gc()
 library(harmony)
-#SCT标准化数据
+
 gsm <- SCTransform(gsm, method = "glmGamPoi")
 features <- VariableFeatures(object = gsm)
 gsm <- RunPCA(gsm,npcs=50,features = features, verbose = TRUE)
-#数据缩放（去除基因效应）
+
 gsm <- ScaleData(gsm)
 rm(gsmList)
 gc()
-#harmony前置需要pca
+
 gsm <- RunPCA(gsm, npcs=50,features = features, verbose = TRUE)
-#########降维聚类分群##########
+
 library(cowplot)
-#非线性降维聚类
+
 gsm <- RunTSNE(gsm, reduction = "pca", dims = 1:15) 
 gsm <- RunUMAP(gsm, reduction = "pca", dims = 1:15)
-###找出类群###
 gsm <- FindNeighbors(gsm, reduction = "pca", dims = 1:15)
-}#########单个List##########
+}
 rm(gsmList)
 gc()
 gsm <- FindClusters(gsm, resolution = 0.8)
 table(gsm@meta.data$SCT_snn_res.0.8) 
 
-#########添加标注信息用作训练集###########
+
 library(SingleR)
-# library(celldex)
-
 gsm_for_SingleR <- GetAssayData(gsm,slot="data")
-
-######################################
 
 clusters=gsm@meta.data$seurat_clusters
 
@@ -173,32 +165,3 @@ gsmList = lapply(c(gsm2,gsm),function(pro){
   return(list)
 })
 save(gsmList,file = 'outputList.RData')
-
-
-######################useless###################
-#if (species == "Human")
-#{
-#load(humanref)
-#gsm1 <- FindVariableFeatures(gsm@assays$RNA, selection.method = "vst", nfeatures = 5000)
-#gsm2 <- subset(x = gsm, features = head(VariableFeatures(gsm1),5000))
-
-#gsm2
-
-#gsmList = lapply(c(schuman,gsm),function(pro){
-#  list=pro
-#  return(list)
-#})
-#save(gsmList,file = 'outputList.RData')
-#}else if (species == "Mouse"){
-
-#load(mouseref)
-
-#gsm1 <- FindVariableFeatures(gsm@assays$RNA, selection.method = "vst", nfeatures = 2000)
-#gsm2 <- subset(x = gsm, features = head(VariableFeatures(gsm1),2000))
-#gsm2
-#gsmList = lapply(c(scmouse,gsm),function(pro){
-#  list=pro
-#  return(list)
-#})
-#save(gsmList,file = 'outputList.RData')
-#}
