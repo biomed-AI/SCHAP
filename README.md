@@ -1,6 +1,5 @@
 
 # SCHAP: Single Cell High-performance Analysis Platform
-—
 
 
 
@@ -14,18 +13,18 @@ The application is free and open to all users with no login requirement. The ana
 
 ## Requirements
 You'll need to install the following packages in order to run the codes.
-- [cellranger7.1.0]
-- [cellranger-atac2.1.0]
-- [SeuratV4]
-- [Harmony]
-- [clusterprofile]
-- [CellChat]
-- [velocyto]
-- [Signac]
-- [Cireco]
-- [ADClust]
-- [SingleR]
-- [GraphCS]
+- cellranger7.1.0
+- cellranger-atac2.1.0
+- SeuratV4
+  [Harmony
+- clusterprofile
+- CellChat
+- velocyto
+- Signac
+- Cireco]
+- ADClust
+- SingleR
+- GraphCS
 
 
 ## Installation
