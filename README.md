@@ -1,4 +1,4 @@
-# SCHAP: Single Cell High-performance Analysis Platform
+#              SCHAP: Single Cell High-performance Analysis Platform
 
 
 <div align=center>
