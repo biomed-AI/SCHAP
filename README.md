@@ -32,8 +32,8 @@ You'll need to install the following packages in order to run the codes in your 
 ### To run scRNA-generic/ prepross & visualization for ADClust/ prepross & visualization for GraphCS
 conda create -n scrna --file spec-scrna-list.txt
 ### To run the visualization for SANGO
-conda create -n scrna --file spec-monocle-list.txt
-conda create -n scrna --file spec-motif-list.txt
+conda create -n scrna --file spec-monocle-list.txt;
+conda create -n scrna --file spec-motif-list.txt;
 conda create -n scrna --file spec-snpsea-list.txt
 ### To run scATAC-generic
 conda create -n scrna --file spec-scatac-list.txt
