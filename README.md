@@ -29,6 +29,8 @@ You'll need to install the following packages in order to run the codes in your 
 - velocyto
 - Signac
 - Cireco
+- SNPsea
+- liftover
 - [ADClust](https://github.com/biomed-AI/ADClust)
 - SingleR
 - [GraphCS](https://github.com/biomed-AI/GraphCS)
@@ -76,7 +78,7 @@ bash entrypoint_scatac.sh
 ```
 
 - ADClust
-The workflow primarily involves the use of Seurat, Harmony, SingleR, and CellChat. Seurat and Harmony were utilized for data integration, Seurat for clustering, and SingleR for cell annotation. Finally, CellChat was employed to calculate cell communication.
+The workflow primarily involves the use of Seurat, Harmony, ADClust, SingleR, and CellChat. Seurat and Harmony were utilized for data integration, ADClust for clustering, and SingleR for cell annotation. Finally, CellChat was employed to calculate cell communication.
 ```bash
 bash entrypoint_ADClust_1.sh
 bash entrypoint_ADClust_2.sh
@@ -84,7 +86,7 @@ bash entrypoint_ADClust_2.sh
 
 - GraphCS
 
-The workflow includes Seurat, Harmony, SingleR, and CellChat. We Seurat and Harmony were utilized for data integration and clustering, GraphCS for cell annotation, and CellChat for calculating cell communication.
+The workflow includes Seurat, Harmony, GraphCS, and CellChat. We Seurat and Harmony were utilized for data integration and clustering, GraphCS for cell annotation, and CellChat for calculating cell communication.
 
 ```bash
 bash entrypoint_GraphCS_1.sh
