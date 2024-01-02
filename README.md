@@ -12,7 +12,7 @@ SCHAP is a Single-Cell High-performance Analysis Platform primarily designed for
 
 ## Accessing SCHAP
 The website link is available at https://bio-web1.nscc-gz.cn/database/SCHAP.
-The application is free and open to all users with no login requirement. The analyzedresults are easily downloaded via URL. 
+The application is free and open to all users with no login requirement. The analyzed results are easily downloaded via URL. 
 
 
 ## Requirements
