@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -v on
+#set -v on
 set -x # debug 
 set -e # exit script with any err
 # set -u # exit script with any use of empty env
