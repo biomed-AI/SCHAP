@@ -5,8 +5,6 @@ set -x # debug
 set -e # exit script with any err
 # set -u # exit script with any use of empty env
 
-env > env.log
-
 mkdir input
 
 cp $Rdata input/
