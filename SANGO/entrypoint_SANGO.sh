@@ -5,7 +5,6 @@ set -x # debug
 set -e # exit script with any err
 # set -u # exit script with any use of empty env
 
-env > env.log
 
 mkdir -p input
 
@@ -35,9 +34,6 @@ export connections_genome=$connections_genome
 #pos2 <- 75884283 ## parameter
 export pos1=$connections_pos1
 export pos2=$connections_pos2
-
-
-export http_proxy="http://10.20.18.21:3128" && export https_proxy="http://10.20.18.21:3128"
 
 mkdir -p /home/zhanghaokun/anaconda3/envs/mamba_install/envs/
 ln -s /app/common/bio-platform/SCHAP/monocle  /home/zhanghaokun/anaconda3/envs/mamba_install/envs/monocle
