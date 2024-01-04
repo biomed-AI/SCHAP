@@ -44,21 +44,26 @@ You'll need to install the following packages in order to run the codes in your 
 - To install the GraphCS, please follow the guidelines in https://github.com/biomed-AI/GraphCS
 - To install the SANGO, please follow the guidelines in https://github.com/biomed-AI/SANGO
 
-### To run scRNA-generic/ preprocess & visualization for ADClust and GraphCS
+### Environment Installation
+- To run scRNA-generic/ preprocess & visualization for ADClust and GraphCS
+
 ```bash
 conda create -n singler --file spec-scrna-list.txt
 ```
-### To run the visualization for SANGO
+- To run the visualization for SANGO
+
 ```bash
 conda create -n monocle --file spec-monocle-list.txt
 conda create -n motif --file spec-motif-list.txt
 conda create -n snpsea --file spec-snpsea-list.txt
 ```
-### To run scATAC-generic
+- To run scATAC-generic
+
 ```bash
 conda create -n atacenv --file spec-scatac-list.txt
 ```
-### To run velocyto trajectory analysis
+- To run velocyto trajectory analysis
+
 ```bash
 conda create -n R4velocyto --file spec-R4velocyto-list.txt
 ```
