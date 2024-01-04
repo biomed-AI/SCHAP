@@ -20,14 +20,15 @@ You'll need to install the following packages in order to run the codes in your 
 #
 - Centos 7.6.1810
 #
-- cellranger7.1.0
-- cellranger-atac2.1.0
-- SeuratV4
+- cellranger 7.1.0
+- cellranger-atac 2.1.0
+- Seurat V4
 - Harmony
 - clusterprofile
 - CellChat
 - velocyto
 - Signac
+- Monocle3
 - Cireco
 - SNPsea
 - liftover
