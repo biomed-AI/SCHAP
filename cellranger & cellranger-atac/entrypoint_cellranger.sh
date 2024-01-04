@@ -5,7 +5,6 @@ set -x # debug
 set -e # exit script with any err
 # set -u # exit script with any use of empty env
 
-env > env.log
 
 mkdir cellranger_input
 chmod 755 cellranger_input
@@ -26,7 +25,5 @@ elif [[ $species = Mouse ]]; then
 export transcriptome=/app/common/bio-platform/SCHAP/reference/refdata-gex-mm10-2020-A
 fi
 
-
-export http_proxy="http://10.20.18.21:3128" && export https_proxy="http://10.20.18.21:3128"
 #Run the code
 bash $submit_path $transcriptome 2>&1 | tee output.log
