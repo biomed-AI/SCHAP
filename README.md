@@ -22,13 +22,13 @@ You'll need to install the following packages in order to run the codes in your 
 #
 - cellranger 7.1.0
 - cellranger-atac 2.1.0
-- Seurat V4
+- Seurat v4
 - Harmony
 - clusterprofile
 - CellChat
 - velocyto
 - Signac
-- Monocle3
+- Monocle 3
 - Cireco
 - SNPsea
 - liftover
