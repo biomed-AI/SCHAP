@@ -80,6 +80,7 @@ bash entrypoint_scatac.sh
 ```
 
 - ADClust
+
 The workflow primarily involves the use of Seurat, Harmony, ADClust, SingleR, and CellChat. Seurat and Harmony were utilized for data integration, ADClust for clustering, and SingleR for cell annotation. Finally, CellChat was employed to calculate cell communication.
 
 Preprocess the raw data to satisfy the input of ADClust
