@@ -2,7 +2,7 @@
 export transcriptome=$1
 export fastq=$(realpath cellranger_input)
 export PATH=/app/common/bio-platform/SCHAP/cellranger-7.1.0:$PATH
-# 获取 cellranger_input 文件夹中的文件夹数量
+
 cd cellranger_input
 file_count=$(ls *.fastq.gz|cut -f 1 -d "_"|uniq|wc -l)
 echo "`ls *.fastq.gz`" >>samples_fullname.txt
@@ -17,7 +17,6 @@ if [ "$file_count" -eq 1 ]; then
       done
   done
 elif [ "$file_count" > 1 ]; then
-    # 有两个文件夹，将第一个文件夹路径赋给 sample1 环境变量，以此类推
   for i in `seq $file_count`
   do
     for n in `cat samples_fullname.txt`
@@ -29,7 +28,6 @@ elif [ "$file_count" > 1 ]; then
     done
   done
 else
-    # 没有输入，或者解压后结构不规范
     echo "Error: You should check your input file for compliance."
     exit 1
 fi
