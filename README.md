@@ -63,7 +63,7 @@ conda create -n R4velocyto --file spec-R4velocyto-list.txt
 ```
 
 ## Usage
-Due to the upload size limits for website, you can utilize our code in your local environment.
+Due to the upload size limits for website, you can also utilize our code in your local environment.
 
 - scRNA-generic
 The workflow includes Seurat, Harmony, SingleR, and CellChat. We Seurat and Harmony were utilized for data integration and clustering, SingleR for cell annotation, and CellChat for calculating cell communication.
