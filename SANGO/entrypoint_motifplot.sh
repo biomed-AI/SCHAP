@@ -5,8 +5,6 @@ set -x # debug
 set -e # exit script with any err
 # set -u # exit script with any use of empty env
 
-env > env.log
-
 mkdir -p input
 
 tar -xvf $samplestar -C input
@@ -23,9 +21,6 @@ echo "$species"
 
 ## (Default 'Microglia')
 export da_peaks_ident=$da_peaks_ident
-
-export http_proxy="http://10.20.18.21:3128" && export https_proxy="http://10.20.18.21:3128"
-
 
 mkdir -p /home/zhanghaokun/anaconda3/envs/mamba_install/envs/
 ln -s /app/common/bio-platform/SCHAP/motif  /home/zhanghaokun/anaconda3/envs/mamba_install/envs/motif
