@@ -23,8 +23,6 @@ export heatmap_height=$heatmap_height
 export bubble_width=$bubble_width
 export bubble_height=$bubble_height
 
-export http_proxy="http://10.20.18.21:3128" && export https_proxy="http://10.20.18.21:3128"
-
 mkdir -p /home/zhanghaokun/anaconda3/envs/
 ln -s /app/common/bio-platform/SCHAP/singler /home/zhanghaokun/anaconda3/envs/singler
 
