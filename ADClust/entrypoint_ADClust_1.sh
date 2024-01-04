@@ -46,8 +46,6 @@ export Immu_Rdata_path=/app/common/bio-platform/SCHAP/mouseImmu.Rdata
 export RNA_Rdata_path=/app/common/bio-platform/SCHAP/mouseRNA.Rdata
 fi
 
-export http_proxy="http://10.20.18.21:3128" && export https_proxy="http://10.20.18.21:3128"
-
 mkdir -p /home/zhanghaokun/anaconda3/envs/
 ln -s /app/common/bio-platform/SCHAP/singler /home/zhanghaokun/anaconda3/envs/singler
 
