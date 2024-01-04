@@ -45,7 +45,7 @@ You'll need to install the following packages in order to run the codes in your 
 - To install the SANGO, please follow the guidelines in https://github.com/biomed-AI/SANGO
 
 ### Environment Installation
-- To run scRNA-generic/ preprocess & visualization for ADClust and GraphCS
+- To run scRNA-generic / preprocess & visualization for ADClust and GraphCS
 
 ```bash
 conda create -n singler --file spec-scrna-list.txt
