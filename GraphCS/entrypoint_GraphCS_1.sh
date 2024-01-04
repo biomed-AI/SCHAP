@@ -5,8 +5,6 @@ set -x # debug
 set -e # exit script with any err
 # set -u # exit script with any use of empty env
 
-env > env.log
-
 mkdir input
 
 tar -xvf $samplestar -C input
@@ -52,8 +50,6 @@ export Immu_Rdata_path=/app/common/bio-platform/SCHAP/mouseImmu.Rdata
 export RNA_Rdata_path=/app/common/bio-platform/SCHAP/mouseRNA.Rdata
 export ref=/app/common/bio-platform/SCHAP/reference/GraphCS_mouse.Rdata
 fi
-
-export http_proxy="http://10.20.18.21:3128" && export https_proxy="http://10.20.18.21:3128"
 
 mkdir -p /home/zhanghaokun/anaconda3/envs/
 ln -s /app/common/bio-platform/SCHAP/singler /home/zhanghaokun/anaconda3/envs/singler
