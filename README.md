@@ -66,12 +66,14 @@ conda create -n R4velocyto --file spec-R4velocyto-list.txt
 Due to the upload size limits for website, you can also utilize our code in your local environment.
 
 - scRNA-generic
+
 The workflow includes Seurat, Harmony, SingleR, and CellChat. We Seurat and Harmony were utilized for data integration and clustering, SingleR for cell annotation, and CellChat for calculating cell communication.
 ```bash
 bash entrypoint_scRNA_generic.sh
 ```
 
 - scATAC-generic
+
 The workflow includes Seurat and Signac. Seurat and Signac were utilized for data integration and clustering, with Signac used for annotation and computing QC metrics.
 ```bash
 bash entrypoint_scatac.sh
