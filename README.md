@@ -67,16 +67,16 @@ Due to the upload size limits for website, you can also utilize our code in your
 
 - cellranger count
 
-The code to process fastq files of scRNA-seq data.
+The code to process the fastq files of scRNA-seq data.
 ```bash
 bash entrypoint_cellranger.sh
 ```
 
 - cellranger-atac count
 
-The code to process fastq files of scATAC-seq data.
+The code to process the fastq files of scATAC-seq data.
 ```bash
-bash entrypoint_cellranger-atac.sh
+bash entrypoint_cellranger_atac.sh
 ```
 
 - scRNA-generic
