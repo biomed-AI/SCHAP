@@ -65,6 +65,20 @@ conda create -n R4velocyto --file spec-R4velocyto-list.txt
 ## Usage
 Due to the upload size limits for website, you can also utilize our code in your local environment.
 
+- cellranger count
+
+The code to process fastq files of scRNA-seq data.
+```bash
+bash entrypoint_cellranger.sh
+```
+
+- cellranger-atac count
+
+The code to process fastq files of scATAC-seq data.
+```bash
+bash entrypoint_cellranger-atac.sh
+```
+
 - scRNA-generic
 
 The workflow includes Seurat, Harmony, SingleR, and CellChat. We Seurat and Harmony were utilized for data integration and clustering, SingleR for cell annotation, and CellChat for calculating cell communication.
