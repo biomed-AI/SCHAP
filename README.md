@@ -130,7 +130,7 @@ bash entrypoint_GraphCS_2.sh
 The tool mainly includes Seurat and velocity, we can use it for trajectory analysis.
 
 ```bash
-entrypoint_velocyto.sh
+bash entrypoint_velocyto.sh
 ```
 
 - SANGO
