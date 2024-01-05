@@ -87,7 +87,7 @@ bash entrypoint_cellranger_atac.sh
 
 - scRNA-generic
 
-The workflow includes Seurat, Harmony, SingleR, and CellChat. Seurat and Harmony were utilized for data integration and clustering, SingleR for cell annotation, and CellChat for calculating cell communication.
+The workflow includes Seurat, Harmony, SingleR, and CellChat. We used Seurat and Harmony were utilized for data integration and clustering, SingleR for cell annotation, and CellChat for calculating cell communication.
 ```bash
 bash entrypoint_scRNA_generic.sh
 ```
@@ -101,7 +101,7 @@ bash entrypoint_scatac.sh
 
 - ADClust
 
-The workflow primarily involves the use of Seurat, Harmony, ADClust, SingleR, and CellChat. Seurat and Harmony were utilized for data integration, ADClust for clustering, and SingleR for cell annotation. Finally, CellChat was employed to calculate cell communication.
+The workflow primarily involves the use of Seurat, Harmony, ADClust, SingleR, and CellChat. We used Seurat and Harmony were utilized for data integration, ADClust for clustering, and SingleR for cell annotation. Finally, CellChat was employed to calculate cell communication.
 
 Preprocess the raw data to satisfy the input of ADClust
 ```bash
@@ -114,7 +114,7 @@ bash entrypoint_ADClust_2.sh
 
 - GraphCS
 
-The workflow includes Seurat, Harmony, GraphCS, and CellChat. Seurat and Harmony were utilized for data integration and clustering, GraphCS for cell annotation, and CellChat for calculating cell communication.
+The workflow includes Seurat, Harmony, GraphCS, and CellChat. We used Seurat and Harmony were utilized for data integration and clustering, GraphCS for cell annotation, and CellChat for calculating cell communication.
 
 Preprocess the raw data to satisfy the input of GraphCS
 ```bash
