@@ -48,7 +48,7 @@ library(ggplot2)
 for (i in 1:length(gsmList)) {
   mt<-PercentageFeatureSet(gsmList[[i]],pattern = "^MT-")
   gsmList[[i]] <- subset(gsmList[[i]], subset = nFeature_RNA > 200 & nFeature_RNA < 4500 & mt < 10)
-  gsmList[[i]] <- subset(gsmList[[i]], features = head(VariableFeatures(gsmList[[i]]),2000))
+  gsmList[[i]] <- subset(gsmList[[i]], features = head(VariableFeatures(gsmList[[i]]),4000))
 }
 rm(mt)
 gc()
