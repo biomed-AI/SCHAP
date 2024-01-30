@@ -15,7 +15,7 @@ The website link is available at https://bio-web1.nscc-gz.cn/database/SCHAP.
 The application is free and open to all users with no login requirement. The analyzed results are easily downloaded via URL. 
 
 ## Data Availability
-The scRNAseq (GSE145230 and GSE132509) and scATAC-seq (mouse brain 4k) datasets used for this manuscript are hosted by the following service: [Google Drive](https://drive.google.com/drive/folders/1Uv2AZHCt95Nav0ePVcMsCUSrFaWzur95?usp=sharing)
+The scRNA-seq (GSE145230 and GSE132509) and scATAC-seq (mouse brain 4k) datasets used for this manuscript are hosted by the following service: [Google Drive](https://drive.google.com/drive/folders/1Uv2AZHCt95Nav0ePVcMsCUSrFaWzur95?usp=sharing)
 
 ## Requirements
 You'll need to install the following packages in order to run the codes in your local environment.
